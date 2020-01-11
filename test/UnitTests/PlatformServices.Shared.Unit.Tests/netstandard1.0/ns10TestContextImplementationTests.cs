@@ -18,6 +18,7 @@ namespace MSTestAdapter.PlatformServices.Tests.Services
     using UnitTestOutcome = FrameworkV2::Microsoft.VisualStudio.TestTools.UnitTesting.UnitTestOutcome;
 #endif
 
+    using System;
     using System.Collections.Generic;
     using System.IO;
 
@@ -169,7 +170,7 @@ namespace MSTestAdapter.PlatformServices.Tests.Services
 
             this.testContextImplementation.WriteLine("{0} Testing write", 1);
 
-            StringAssert.Contains(stringWriter.ToString(), "1 Testing write");
+            StringAssert.Contains(stringWriter.ToString(), "1 Testing write" + Environment.NewLine);
         }
 
         [TestMethod]
@@ -180,7 +181,7 @@ namespace MSTestAdapter.PlatformServices.Tests.Services
 
             this.testContextImplementation.WriteLine("{0} Testing \0 write \0", 1);
 
-            StringAssert.Contains(stringWriter.ToString(), "1 Testing \\0 write \\0");
+            StringAssert.Contains(stringWriter.ToString(), "1 Testing \\0 write \\0" + Environment.NewLine);
         }
 
         [TestMethod]
@@ -205,7 +206,7 @@ namespace MSTestAdapter.PlatformServices.Tests.Services
 
             this.testContextImplementation.WriteLine("1 Testing write");
 
-            StringAssert.Contains(stringWriter.ToString(), "1 Testing write");
+            StringAssert.Contains(stringWriter.ToString(), "1 Testing write" + Environment.NewLine);
         }
 
         [TestMethod]
@@ -216,7 +217,7 @@ namespace MSTestAdapter.PlatformServices.Tests.Services
 
             this.testContextImplementation.WriteLine("1 Testing \0 write \0");
 
-            StringAssert.Contains(stringWriter.ToString(), "1 Testing \\0 write \\0");
+            StringAssert.Contains(stringWriter.ToString(), "1 Testing \\0 write \\0" + Environment.NewLine);
         }
 
         [TestMethod]
